@@ -1,0 +1,170 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
+}
+
+.app {
+  padding: .5em;
+  max-width: 900px;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.alert-container {
+  position: fixed;
+  top: 50px;
+  left: 50vw;
+  z-index: 1;
+  transform: translateX(-50%);
+}
+
+.alert {
+  padding: .5em;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
+  border-radius: .3em;
+  margin-bottom: 1em;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+
+.alert.hide {
+  opacity: 0;
+}
+
+.heading {
+  font-size: 2.3rem;
+  margin: 0;
+}
+
+.tile-container {
+  display: grid;
+  grid-template-columns: repeat(5,3.5em);
+  grid-template-rows: repeat(6, 3.5em);
+  gap: .3em;
+}
+
+.tile {
+  border: 1px solid hsl(0, 0%, 30%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  transition: transform 300ms ease-in-out;
+}
+
+.tile.shake {
+  animation: shake 300ms ease-in-out;
+}
+
+@keyframes shake {
+  10% {
+    transform: translateX(-5%);
+  }
+
+  30% {
+    transform: translateX(5%);
+  }
+
+  50% {
+    transform: translateX(-7.5%);
+  }
+
+  70% {
+    transform: translateX(7.5%);
+  }
+
+  90% {
+    transform: translateX(-5%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.tile.dance {
+  animation: dance 300ms ease-in-out;
+}
+
+@keyframes dance {
+
+  20% {
+    transform: translateY(-10%);
+  }
+
+  40% {
+    transform: translateY(5%);
+  }
+
+  60% {
+    transform: translateY(-5%);
+  }
+
+  80% {
+    transform: translateY(2.5%);
+  }
+
+  90% {
+    transform: translateY(-2.5%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.tile.flip {
+  transform: rotateX(180deg);
+}
+
+.tile[data-state="active"] {
+  border-color: hsl(0, 0%, 70%);
+}
+
+.tile[data-state="correct"], .key.correct {
+  background-color: hsl(120, 80%, 45%);
+}
+
+.tile[data-state="incorrect"], .key.incorrect {
+  background-color: hsl(0, 0%, 10%);
+}
+
+.tile[data-state="wrong-location"], .key.wrong-location {
+  background-color: hsl(60, 80%, 45%);
+}
+
+.keyboard {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  gap: .5em;
+}
+
+.key {
+  padding: .5em 1em;
+  cursor: pointer;
+  background-color: hsl(0, 0%, 30%);
+  color: hsl(0, 0%, 100%);
+  border-radius: .3em;
+  transition: opacity 100ms ease-in-out;
+}
+
+.key:hover {
+  opacity: .7;
+}
+
+.key[data-enter], .key[data-delete] {
+  color: hsl(133, 78%, 31%);
+  fill: hsl(0, 59%, 31%);
+}
