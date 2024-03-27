@@ -133,7 +133,7 @@ body {
 }
 
 .tile[data-state="correct"], .key.correct {
-  background-color: hsl(120, 80%, 45%);
+  background-color: hsl(120, 80%, 40%);
 }
 
 .tile[data-state="incorrect"], .key.incorrect {
@@ -141,7 +141,7 @@ body {
 }
 
 .tile[data-state="wrong-location"], .key.wrong-location {
-  background-color: hsl(60, 80%, 45%);
+  background-color: hsl(60, 80%, 40%);
 }
 
 .keyboard {
